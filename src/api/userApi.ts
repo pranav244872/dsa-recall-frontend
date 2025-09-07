@@ -1,13 +1,11 @@
 import { type SignupForm, type LoginForm, type User } from '../types/user';
 
-const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
-
 //////////////////////////////////////////////////////////////////////////
 // Sign Up
 //////////////////////////////////////////////////////////////////////////
 
 export async function signup(details: SignupForm): Promise<void> {
-    const response = await fetch(`${API_BASE_URL}/api/signup`, {
+    const response = await fetch(`/api/signup`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -27,7 +25,7 @@ export async function signup(details: SignupForm): Promise<void> {
 //////////////////////////////////////////////////////////////////////////
 
 export async function login(credentials: LoginForm): Promise<void> {
-    const response = await fetch(`${API_BASE_URL}/api/login`, {
+    const response = await fetch(`/api/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -47,7 +45,7 @@ export async function login(credentials: LoginForm): Promise<void> {
 //////////////////////////////////////////////////////////////////////////
 
 export async function checkAuthStatus(): Promise<User> {
-    const response = await fetch(`${API_BASE_URL}/api/cookietest`, {
+    const response = await fetch(`/api/cookietest`, {
         method: 'GET',
         credentials: 'include',
     });
