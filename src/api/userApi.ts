@@ -5,19 +5,19 @@ import { type SignupForm, type LoginForm, type User } from '../types/user';
 //////////////////////////////////////////////////////////////////////////
 
 export async function signup(details: SignupForm): Promise<void> {
-    const response = await fetch(`/api/signup`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(details),
-    });
+  const response = await fetch(`/api/signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(details),
+  });
 
-    if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || 'Signup Failed');
-    }
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || 'Signup Failed');
+  }
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -25,19 +25,19 @@ export async function signup(details: SignupForm): Promise<void> {
 //////////////////////////////////////////////////////////////////////////
 
 export async function login(credentials: LoginForm): Promise<void> {
-    const response = await fetch(`/api/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(credentials),
-    });
+  const response = await fetch(`/api/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(credentials),
+  });
 
-    if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || 'Login Failed');
-    }
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || 'Login Failed');
+  }
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -45,14 +45,14 @@ export async function login(credentials: LoginForm): Promise<void> {
 //////////////////////////////////////////////////////////////////////////
 
 export async function checkAuthStatus(): Promise<User> {
-    const response = await fetch(`/api/cookietest`, {
-        method: 'GET',
-        credentials: 'include',
-    });
+  const response = await fetch(`/api/me`, {
+    method: 'GET',
+    credentials: 'include',
+  });
 
-    if (!response.ok) {
-        throw new Error('User not authenticated');
-    }
+  if (!response.ok) {
+    throw new Error('User not authenticated');
+  }
 
-    return response.json();
+  return response.json();
 }

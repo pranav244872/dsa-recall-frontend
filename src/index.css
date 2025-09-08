@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1b26; /* Dark BG */
+  color: #c0caf5; /* FG */
+}
+
+main {
+  min-height: calc(100vh - 150px); /* Adjust based on header/footer height */
+  padding-bottom: 2.5rem;
+}

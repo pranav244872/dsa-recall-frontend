@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1b26; /* Dark BG */
+  border-bottom: 1px solid #7aa2f7; /* Accent Blue */
+}
+
+.title {
+  color: #c0caf5; /* FG */
+  font-size: 1.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  color: #a9b1d6; /* Muted FG */
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #7dcfff; /* Accent Cyan */
+}
+
+.activeLink {
+  composes: link;
+  color: #73daca; /* Accent Green */
+  font-weight: bold;
+}
