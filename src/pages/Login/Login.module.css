@@ -1,24 +1,22 @@
-/* Using 'composes' to share styles is a great CSS Modules feature */
-/* For simplicity, we'll just define them here. */
 .container {
   max-width: 400px;
   margin: 4rem auto;
   padding: 2rem;
-  border: 1px solid #444;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background-color: #1e1e2e;
+  background-color: var(--bg-med);
 }
 
 .title {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #c0caf5;
+  color: var(--fg);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .formGroup {
@@ -29,24 +27,30 @@
 
 .label {
   font-weight: bold;
-  color: #a9b1d6;
+  color: var(--fg-muted);
 }
 
 .input {
   padding: 0.75rem;
-  border: 1px solid #3b4261;
+  border: 1px solid var(--border);
   border-radius: 4px;
   font-size: 1rem;
-  background-color: #24283b;
-  color: #c0caf5;
+  background-color: var(--bg-dark);
+  color: var(--fg);
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--blue);
 }
 
 .button {
   padding: 0.75rem;
   border: none;
   border-radius: 4px;
-  background-color: #7aa2f7;
-  color: #1a1b26;
+  background-color: var(--blue);
+  color: var(--bg-dark);
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -54,31 +58,20 @@
 }
 
 .button:hover {
-  background-color: #9ece6a;
+  background-color: var(--green);
 }
 
 .button:disabled {
-  background-color: #414868;
+  background-color: #414868; /* A specific disabled color */
   cursor: not-allowed;
 }
 
-.message {
+.success {
   text-align: center;
   margin-top: 1rem;
   padding: 0.75rem;
   border-radius: 4px;
-}
-
-.error {
-  composes: message;
-  color: #f7768e;
-  background-color: rgba(247, 118, 142, 0.1);
-  border: 1px solid #f7768e;
-}
-
-.success {
-  composes: message;
-  color: #9ece6a;
+  color: var(--green);
   background-color: rgba(158, 206, 106, 0.1);
-  border: 1px solid #9ece6a;
+  border: 1px solid var(--green);
 }

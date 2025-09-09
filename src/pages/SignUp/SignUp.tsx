@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { type SignupForm } from '../../types/user';
 import styles from './SignUp.module.css';
-// 1. Import the API function
-import { signup } from '../../api/userApi';
+import Alert from '../../components/Alert/Alert';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-  // State definitions are unchanged
   const [formData, setFormData] = useState<SignupForm>({
     name: '',
     email: '',
     password: '',
   });
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+
+  const { signup, error, loading } = useAuth();
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,26 +25,12 @@ const SignUp = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
 
     try {
-      // Call the real API function
       await signup(formData);
-      // If it succeeds, set the success message
-      setSuccess('Account created successfully! You can now log in.');
-      setFormData({ name: '', email: '', password: '' }); // Reset form
-    } catch (err: unknown) {
-      // If it fails, catch the error
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('An unknown error occurred.');
-      }
-    } finally {
-      // This block runs whether the try or catch block completed
-      setLoading(false);
+      navigate('/dashboard');
+    } catch {
+      // error is already handled by the hook
     }
   };
 
@@ -102,8 +88,7 @@ const SignUp = () => {
           {loading ? 'Creating Account...' : 'Sign Up'}
         </button>
 
-        {error && <p className={styles.error}>{error}</p>}
-        {success && <p className={styles.success}>{success}</p>}
+        {error && <Alert message={error} type="error" />}
       </form>
     </div>
   );

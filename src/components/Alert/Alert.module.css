@@ -1,0 +1,32 @@
+.alert {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  border: 1px solid;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.error {
+  color: var(--red);
+  background-color: rgba(247, 118, 142, 0.1);
+  border-color: var(--red);
+}
+
+.success {
+  color: var(--green);
+  background-color: rgba(158, 206, 106, 0.1);
+  border-color: var(--green);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

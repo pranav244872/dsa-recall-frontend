@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { type LoginForm } from '../../types/user';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
 import styles from './Login.module.css';
+import Alert from '../../components/Alert/Alert'; // <-- Import Alert component
 
 const Login = () => {
-  // Call custom hook to get shared state and functions
   const { user, loading, error, login } = useAuth();
 
-  // Manage local state ONLY for the form inputs
   const [credentials, setCredentials] = useState<LoginForm>({
     email: '',
     password: '',
@@ -21,12 +20,14 @@ const Login = () => {
     }));
   };
 
-  // Handle submit by calling the function from the hook
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await login(credentials);
   };
 
+  // Redirect logic: If the user is successfully logged in,
+  // we can simply show a welcome message or redirect them.
+  // The ProtectedRoute will handle keeping them on the dashboard.
   if (user) {
     return (
       <div className={styles.container}>
@@ -72,8 +73,8 @@ const Login = () => {
           {loading ? 'Logging in...' : 'Log In'}
         </button>
 
-        {/* The error message comes from the useAuth hook */}
-        {error && <p className={styles.error}>{error}</p>}
+        {/* Use the Alert component for consistent styling */}
+        {error && <Alert message={error} type="error" />}
       </form>
     </div>
   );

@@ -2,34 +2,45 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #1a1b26; /* Dark BG */
-  border-bottom: 1px solid #7aa2f7; /* Accent Blue */
+  /* Reduced padding to make the header slimmer */
+  padding: 0.75rem 2rem;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border);
 }
 
 .title {
-  color: #c0caf5; /* FG */
-  font-size: 1.5rem;
+  color: var(--fg);
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 .nav {
   display: flex;
+  /* Added gap for spacing between links */
   gap: 1.5rem;
+  align-items: center;
 }
 
 .link {
-  color: #a9b1d6; /* Muted FG */
+  color: var(--fg-muted);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 500;
   transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem; /* Added some padding for easier clicking */
+  font-family: inherit;
+  border-radius: 4px;
 }
 
 .link:hover {
-  color: #7dcfff; /* Accent Cyan */
+  color: var(--cyan);
 }
 
 .activeLink {
   composes: link;
-  color: #73daca; /* Accent Green */
-  font-weight: bold;
+  color: var(--green);
+  font-weight: 700;
 }
