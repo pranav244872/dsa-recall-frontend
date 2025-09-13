@@ -1,0 +1,92 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-med);
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  list-style-type: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.item:hover {
+  background-color: #2a2f41; /* A slightly lighter shade */
+  border-color: var(--blue);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  margin: 0;
+  color: var(--fg);
+  font-size: 1.125rem;
+}
+
+.link {
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* in src/components/ProblemListItem/ProblemListItem.module.css */
+/* ... keep all existing styles ... */
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center; /* Vertically align buttons */
+}
+
+/* New style for the action buttons */
+.actionButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--bg-dark);
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background-color: var(--blue);
+  color: var(--bg-dark);
+  border-color: var(--blue);
+}
+
+.easyButton {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.easyButton:hover {
+  background-color: var(--green);
+  color: var(--bg-dark);
+}
+
+.hardButton {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.hardButton:hover {
+  background-color: var(--red);
+  color: var(--bg-dark);
+}

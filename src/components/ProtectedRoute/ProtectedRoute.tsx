@@ -8,7 +8,7 @@ type ProtectedRouteProps = {
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const { user, loading } = useAuth();
-
+  console.log('ProtectedRoute state:', { loading, user });
   if (loading) {
     return <p>Loading...</p>; // or a spinner
   }

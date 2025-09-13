@@ -1,0 +1,21 @@
+.container {
+  background-color: var(--bg-med);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Style the scrollbar to be more professional */
+.container::-webkit-scrollbar {
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--fg-muted); /* Color of the scrollbar handle */
+  border-radius: 4px; /* Rounded corners for the handle */
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: var(--bg-dark); /* Color of the scrollbar track */
+  border-radius: 4px;
+}

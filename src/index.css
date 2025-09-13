@@ -1,3 +1,4 @@
+@import 'prismjs/themes/prism-tomorrow.css';
 @import url('https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
@@ -36,6 +37,5 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 150px);
   padding: 1.5rem;
 }

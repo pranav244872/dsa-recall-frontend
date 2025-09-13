@@ -1,19 +1,21 @@
 // Represents the safe user data returned from the backend.
 export interface User {
-    id: number;
-    name: string;
-    email: string;
+  id: number;
+  name: string;
+  email: string;
+  currentStreak: number;
+  lastPracticedAt: string | null;
 }
 
 // The shape of the data needed for the login form.
 export interface LoginForm {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 // The shape of the data needed for the signup form.
 export interface SignupForm {
-    name: string;
-    email: string;
-    password: string;
+  name: string;
+  email: string;
+  password: string;
 }

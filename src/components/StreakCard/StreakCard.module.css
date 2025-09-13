@@ -1,0 +1,53 @@
+.card {
+  background-color: var(--bg-med);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: row; /* Main container is a row */
+  align-items: center;
+  justify-content: space-between; /* Pushes content to the edges */
+  gap: 1.5rem;
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column; /* Stacks the elements vertically */
+  gap: 0.5rem; /* Space between the streak and message */
+}
+
+.streakInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.5rem; /* Space between the number and the 'Day Streak' text */
+}
+
+.count {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1;
+}
+
+.message {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--cyan);
+  margin: 0; /* Changed from '100' to '0' to remove margin */
+  white-space: nowrap;
+}
+
+/* The icon is on the right, so we style it to be larger */
+.icon {
+  font-size: 4rem;
+  line-height: 1;
+}

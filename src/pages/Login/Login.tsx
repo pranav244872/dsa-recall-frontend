@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { type LoginForm } from '../../types/user';
 import { useAuth } from '../../contexts/AuthContext';
 import styles from './Login.module.css';
-import Alert from '../../components/Alert/Alert'; // <-- Import Alert component
+import Alert from '../../components/Alert/Alert';
 
 const Login = () => {
-  const { user, loading, error, login } = useAuth();
+  // We no longer need the 'user' from useAuth here
+  const { loading, error, login } = useAuth();
+  const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState<LoginForm>({
     email: '',
@@ -22,20 +25,13 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await login(credentials);
+    try {
+      await login(credentials);
+      navigate('/dashboard');
+    } catch {
+      // Error is already handled by the auth hook, so we don't need to do anything here.
+    }
   };
-
-  // Redirect logic: If the user is successfully logged in,
-  // we can simply show a welcome message or redirect them.
-  // The ProtectedRoute will handle keeping them on the dashboard.
-  if (user) {
-    return (
-      <div className={styles.container}>
-        <h1 className={styles.title}>Welcome back, {user.name}!</h1>
-        <p className={styles.success}>You are successfully logged in.</p>
-      </div>
-    );
-  }
 
   return (
     <div className={styles.container}>
@@ -73,7 +69,6 @@ const Login = () => {
           {loading ? 'Logging in...' : 'Log In'}
         </button>
 
-        {/* Use the Alert component for consistent styling */}
         {error && <Alert message={error} type="error" />}
       </form>
     </div>

@@ -5,6 +5,8 @@ import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import NewProblem from './pages/NewProblem/NewProblem';
+import ProblemDetail from './pages/ProblemDetail/ProblemDetail';
 
 function App() {
   return (
@@ -18,6 +20,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="problems/new"
+          element={
+            <ProtectedRoute>
+              <NewProblem />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="problems/:problemId"
+          element={
+            <ProtectedRoute>
+              <ProblemDetail />
             </ProtectedRoute>
           }
         />

@@ -9,15 +9,6 @@ const Header = () => {
     <header className={styles.header}>
       <h1 className={styles.title}>DSA Recall</h1>
       <nav>
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? styles.activeLink : styles.link
-          }
-        >
-          Home
-        </NavLink>
-
         {user ? (
           <>
             <NavLink
@@ -34,6 +25,14 @@ const Header = () => {
           </>
         ) : (
           <>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? styles.activeLink : styles.link
+              }
+            >
+              Home
+            </NavLink>
             <NavLink
               to="/signup"
               className={({ isActive }) =>
